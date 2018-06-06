@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const common = require('./webpack.config.common.js');
@@ -15,11 +14,10 @@ module.exports = webpackMerge(common, {
 
     plugins: [
         new ExtractTextPlugin('[name].css'),
-        new webpack.HotModuleReplacementPlugin(),
     ],
 
     devServer: {
-        contentBase: path.join(__dirname, "dist"),
+        contentBase: path.join(__dirname, "www"),
         port: 3000,
     },
 });
