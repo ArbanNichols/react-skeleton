@@ -5,34 +5,33 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: {
         less: './less/style.less',
-        app: './js/common/components/app.jsx'
+        app: './js/components/common/app.jsx',
     },
     context: path.join(__dirname, 'src'),
     module: {
         rules: [
             {
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader', 'less-loader']
+                use: ['style-loader', 'css-loader', 'less-loader'],
             }, {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-                loader: 'url-loader?limit=100000'
+                use: ['style-loader', 'css-loader'],
             }, {
                 enforce: "pre",
                 test: /.(js|jsx)$/,
                 loader: "eslint-loader",
                 options: {
-                    configFile: '.eslintrc'
-                }
+                    configFile: '.eslintrc',
+                },
             }, {
                 test: /.(js|jsx)$/,
                 exclude: /(node_modules)/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ["es2015", "react", "stage-0"]
-                    }
-                }
+                        presets: ["es2015", "react", "stage-0"],
+                    },
+                },
             },
         ],
     },
@@ -48,9 +47,10 @@ module.exports = {
 
         new webpack.ProvidePlugin({
             '_': 'lodash',
-        })
+            'PropTypes': 'prop-types',
+        }),
     ],
     resolve: {
         extensions: ['.js', '.jsx'],
-    }
+    },
 };
