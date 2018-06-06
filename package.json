@@ -5,7 +5,7 @@
     "clean": "rimraf dist",
     "build": "npm run clean & npm run compile",
     "test": "jest --no-cache --debug",
-    "compile": "webpack --config webpack.config.prod.js --display-error-details --display-reasons --colors --bail",
+    "compile": "webpack --config webpack.config.prod.js --optimize-minimize --optimize-dedupe --display-error-details --display-reasons --colors --bail",
     "start": "webpack-dev-server --inline --colors --hot"
   },
   "dependencies": {
@@ -24,7 +24,7 @@
     "eslint": "^4.19.1",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-react": "^7.9.1",
-    "extract-text-webpack-plugin": "3.0.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-loader": "0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.0.4",
@@ -35,6 +35,7 @@
     "rimraf": "^2.6.2",
     "style-loader": "^0.21.0",
     "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.2",
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "4.1.2"
   },
