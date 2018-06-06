@@ -1,2 +1,2 @@
-# ReactSkeleton
-A boilerplate for react using Webpack and Node.js
+# react-skeleton
+A boilerplate for react involving Webpack and Node.js
