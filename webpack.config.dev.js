@@ -6,6 +6,8 @@ const common = require('./webpack.config.common.js');
 module.exports = webpackMerge(common, {
     devtool: 'source-map',
 
+    mode: 'development',
+
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: '[name].js',
