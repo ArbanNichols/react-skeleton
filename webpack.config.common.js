@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: {
         less: './less/style.less',
-        app: './js/components/common/app.jsx',
+        app: './jsx/index.jsx',
     },
     context: path.join(__dirname, 'src'),
     module: {
@@ -13,30 +13,32 @@ module.exports = {
             {
                 test: /\.less$/,
                 use: ['style-loader', 'css-loader', 'less-loader'],
-            }, {
+            },
+            {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
-            }, {
-                enforce: "pre",
+            },
+            {
+                enforce: 'pre',
                 test: /.(js|jsx)$/,
-                loader: "eslint-loader",
+                loader: 'eslint-loader',
                 options: {
                     configFile: '.eslintrc',
                 },
-            }, {
+            },
+            {
                 test: /.(js|jsx)$/,
                 exclude: /(node_modules)/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ["es2015", "react", "stage-0"],
+                        presets: ['es2015', 'react', 'stage-0'],
                     },
                 },
             },
         ],
     },
     plugins: [
-
         new HtmlWebpackPlugin({
             template: './index.html',
             title: 'Skeleton',
@@ -46,8 +48,8 @@ module.exports = {
         }),
 
         new webpack.ProvidePlugin({
-            '_': 'lodash',
-            'PropTypes': 'prop-types',
+            _: 'lodash',
+            PropTypes: 'prop-types',
         }),
     ],
     resolve: {
