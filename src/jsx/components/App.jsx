@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import Stage from './common/Stage';
+import { Provider } from '../context';
 
 class App extends Component {
     render() {
         return (
-            <div>
-                <h1>Lets Begin</h1>
-            </div>
+            <Provider>
+                <Stage />
+            </Provider>
         );
     }
 }
