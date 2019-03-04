@@ -4,7 +4,7 @@ const Context = React.createContext();
 
 export class Provider extends Component {
     state = {
-        data: [],
+        data: [], // shared state data
     };
 
     componentDidMount() {

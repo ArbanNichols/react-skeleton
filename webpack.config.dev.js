@@ -1,25 +1,22 @@
-const path = require('path');
-const webpackMerge = require('webpack-merge');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const common = require('./webpack.config.common.js');
+const merge = require('webpack-merge');
 
-module.exports = webpackMerge(common, {
-    devtool: 'source-map',
+//Configs
+const base = require('./webpack.config.js');
 
-    mode: 'development',
+const dev = env => {
+    return merge([
+        {
+            devtool: 'inline-source-map',
+            mode: 'development',
+            devServer: {
+                hot: true,
+                port: 3000,
+                historyApiFallback: true,
+            },
+        },
+    ]);
+};
 
-    output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: '[name].js',
-        chunkFilename: '[id].chunk.js',
-    },
-
-    plugins: [
-        new ExtractTextPlugin('[name].css'),
-    ],
-
-    devServer: {
-        contentBase: path.join(__dirname, "www"),
-        port: 3000,
-    },
-});
+module.exports = env => {
+    return merge(base(env), dev(env));
+};
