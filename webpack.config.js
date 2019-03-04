@@ -1,1 +1,53 @@
-module.exports = require('./webpack.config.dev.js');
+const path = require('path');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = env => {
+    const { PLATFORM } = env;
+    return merge([
+        {
+            entry: ['@babel/polyfill'],
+            module: {
+                rules: [
+                    {
+                        test: /\.(js|jsx)$/,
+                        exclude: /node_modules/,
+                        use: {
+                            loader: 'babel-loader',
+                        },
+                    },
+                    {
+                        test: /\.(scss|css)$/,
+                        use: [
+                            PLATFORM === 'production'
+                                ? MiniCssExtractPlugin.loader
+                                : 'style-loader',
+                            'css-loader',
+                            'sass-loader',
+                        ],
+                    },
+                ],
+            },
+            plugins: [
+                new CopyWebpackPlugin([{ from: 'src/static' }]),
+                new HtmlWebpackPlugin({
+                    template: './src/index.html',
+                    filename: './index.html',
+                }),
+                new webpack.DefinePlugin({
+                    'process.env.PLATFORM': JSON.stringify(env.PLATFORM),
+                }),
+                new webpack.ProvidePlugin({
+                    ProppTypes: 'prop-types',
+                }),
+            ],
+            resolve: {
+                extensions: ['.js', '.jsx'],
+            },
+        },
+    ]);
+};
