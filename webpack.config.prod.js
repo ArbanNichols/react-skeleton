@@ -1,18 +1,40 @@
-const path = require('path');
-const webpackMerge = require('webpack-merge');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const common = require('./webpack.config.common.js');
+var merge = require('webpack-merge');
 
-module.exports = webpackMerge(common, {
-    mode: 'production',
+// Plugins
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+var Visualizer = require('webpack-visualizer-plugin');
 
-    output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: '[name].[hash].js',
-        chunkFilename: '[id].[hash].chunk.js',
-    },
+//Configs
+var base = require('./webpack.config.js');
 
-    plugins: [
-        new ExtractTextPlugin('[name].[hash].css'),
-    ],
-});
+const prod = env => {
+    return merge([
+        {
+            mode: 'production',
+            optimization: {
+                runtimeChunk: 'single',
+                splitChunks: {
+                    cacheGroups: {
+                        vendor: {
+                            test: /[\\/]node_modules[\\/]/,
+                            name: 'vendors',
+                            chunks: 'all',
+                        },
+                    },
+                },
+                minimizer: [new UglifyJsPlugin()],
+            },
+            plugins: [
+                new MiniCssExtractPlugin(),
+                new OptimizeCssAssetsPlugin(),
+                new Visualizer({ filename: './statistics.html' }),
+            ],
+        },
+    ]);
+};
+
+module.exports = env => {
+    return merge(base(env), prod(env));
+};
