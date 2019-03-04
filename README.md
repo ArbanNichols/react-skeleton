@@ -1,2 +1,2 @@
 # react-skeleton
-A boilerplate for React.js projects using Webpack as a bundler.
+React.Js boilerplate using Webpack 4 and Babel 7.
