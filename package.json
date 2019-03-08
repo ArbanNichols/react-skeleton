@@ -3,13 +3,14 @@
     "version": "0.0.1",
     "author": "arban.nichs@gmail.com",
     "description": "React.Js + Webpack 4 + Babel 7 boilerplate",
-    "license": "none",
+    "license": "0BSD",
     "keywords": [
         "boilerplate",
         "react",
         "webpack",
         "babel"
     ],
+    "main": "index.jsx",
     "scripts": {
         "compile": "webpack --config webpack.config.prod.js --display-error-details --display-reasons --colors --env.PLATFORM=local",
         "start": "webpack-dev-server --config webpack.config.dev.js --colors --env.PLATFORM=local"
