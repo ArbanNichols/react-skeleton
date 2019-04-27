@@ -10,7 +10,7 @@ module.exports = env => {
     PLATFORM
   } = env;
   return merge([{
-    entry: ['@babel/polyfill', APP_DIR],
+    entry: ['core-js', APP_DIR],
     module: {
       rules: [{
         test: /\.(js|jsx)$/,
