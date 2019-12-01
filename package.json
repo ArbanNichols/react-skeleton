@@ -1,48 +1,59 @@
 {
-    "name": "react-skeleton",
-    "version": "0.0.1",
-    "author": "arban.nichs@gmail.com",
-    "description": "React.Js + Webpack 4 + Babel 7 boilerplate",
-    "license": "0BSD",
-    "keywords": [
-        "boilerplate",
-        "react",
-        "webpack",
-        "babel"
-    ],
-    "main": "index.jsx",
-    "scripts": {
-        "compile": "webpack --config webpack.config.prod.js --display-error-details --display-reasons --colors --env.PLATFORM=local",
-        "start": "webpack-dev-server --config webpack.config.dev.js --colors --env.PLATFORM=local"
-    },
-    "dependencies": {
-        "prop-types": "^15.7.2",
-        "react": "^16.8.3",
-        "react-dom": "^16.8.3"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.3.4",
-        "@babel/plugin-proposal-class-properties": "^7.3.4",
-        "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
-        "@babel/plugin-proposal-throw-expressions": "^7.2.0",
-        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-        "@babel/polyfill": "^7.2.5",
-        "@babel/preset-env": "^7.3.4",
-        "@babel/preset-react": "^7.0.0",
-        "babel-loader": "^8.0.5",
-        "copy-webpack-plugin": "^5.0.0",
-        "css-loader": "^2.1.0",
-        "html-webpack-plugin": "^3.2.0",
-        "mini-css-extract-plugin": "^0.5.0",
-        "node-sass": "^4.11.0",
-        "optimize-css-assets-webpack-plugin": "^5.0.1",
-        "sass-loader": "^7.1.0",
-        "style-loader": "^0.23.1",
-        "uglifyjs-webpack-plugin": "^2.1.2",
-        "webpack": "^4.29.6",
-        "webpack-cli": "^3.2.3",
-        "webpack-merge": "^4.2.1",
-        "webpack-visualizer-plugin": "^0.1.11",
-        "webpack-dev-server": "^3.2.1"
-    }
+  "name": "react-skeleton",
+  "version": "0.0.1",
+  "author": "arban.nichs@gmail.com",
+  "description": "React.Js + Webpack 4 + Babel 7 boilerplate",
+  "license": "0BSD",
+  "keywords": [
+    "boilerplate",
+    "react",
+    "webpack",
+    "babel"
+  ],
+  "main": "index.jsx",
+  "scripts": {
+    "compile": "webpack --config webpack.prod.js --display-error-details --display-reasons --colors",
+    "start": "webpack-dev-server --config webpack.dev.js --colors"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-export-namespace-from": "^7.7.4",
+    "@babel/plugin-proposal-throw-expressions": "^7.7.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.5",
+    "copy-webpack-plugin": "^5.0.0",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-import-resolver-webpack": "^0.11.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "fibers": "^4.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "prettier": "^1.19.1",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.1",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1",
+    "webpack-merge": "^4.2.1",
+    "webpack-visualizer-plugin": "^0.1.11"
+  }
 }
