@@ -3,13 +3,13 @@ import Stage from './components/common/Stage';
 import { Provider } from './context';
 
 class App extends Component {
-    render() {
-        return (
-            <Provider>
-                <Stage />
-            </Provider>
-        );
-    }
+  render() {
+    return (
+      <Provider>
+        <Stage />
+      </Provider>
+    );
+  }
 }
 
 export default App;
